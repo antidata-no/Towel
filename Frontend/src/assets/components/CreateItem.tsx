@@ -1,13 +1,12 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useContext, useState } from "react";
 import "../CSS/App.css";
-import { IPackitem, IUpdateIPackitemlist } from "../interfaces/IPackitems";
+import { IPackitem } from "../interfaces/IPackitems";
 import { apiCreatePackitem } from "../api/apiCreatePackitem";
+import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
 
-const CreateItem: FunctionComponent<IUpdateIPackitemlist> = ({
-  uiAddPackitemtoList,
-  uiUpdatePackitem,
-}) => {
+const CreateItem = () => {
   const [title, setTitle] = useState("");
+  const dispatchListitems = useContext(PackitemDispatchContext);
 
   async function handleCreateItem(e: React.FormEvent) {
     e.preventDefault();
@@ -17,12 +16,11 @@ const CreateItem: FunctionComponent<IUpdateIPackitemlist> = ({
       title: `${title}`,
       checked: false,
     };
-
-  
-    uiAddPackitemtoList(packitem);
+    
+    dispatchListitems({type: "add", payload: [packitem]});    
     setTitle("");
     let packitemfromapi = await apiCreatePackitem(packitem);
-    uiUpdatePackitem(tempID, packitemfromapi);
+    dispatchListitems({type: "update", payload: [packitem, packitemfromapi]});
  
   }
 

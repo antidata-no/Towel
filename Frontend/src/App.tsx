@@ -1,21 +1,35 @@
-import React, { Reducer, ReducerAction, useReducer } from "react";
+import React, { useEffect, Reducer, ReducerAction, useReducer } from "react";
 import {
   PackitemsContext,
   PackitemDispatchContext,
-  packitemsReducer
+  packitemsReducer,
 } from "./assets/contextreducer/PackitemContext";
-import { IPackitem } from "./assets/interfaces/IPackitems";
+import { IPackitem, IDispatchAction } from "./assets/interfaces/IPackitems";
 import PackitemFrame from "./assets/components/PackitemFrame";
+import { apiGetItemlist } from "./assets/api/apiGetItemlist";
 import "./assets/CSS/App.css";
 
-const initialList: IPackitem[] = [];
-
 function App() {
-  const [state, dispatch] = useReducer(packitemsReducer, initialList);
+  let initialList: IPackitem[] = [];
+  /*let listitems = initialList;
+  let dispatch: React.Dispatch<IDispatchAction> = () => {};
+*/
+  const [listitems, dispatch] = useReducer(packitemsReducer, initialList);
 
+
+  useEffect(() => {
+    async function fetchPackitems() {
+      initialList = await apiGetItemlist();
+      await dispatch({type: "set", payload: initialList});
+      console.log("reducer");
+      console.log(listitems);
+    }
+    fetchPackitems();
+  }, []);
+ 
   return (
     <div className="App">
-      <PackitemsContext.Provider value={state}>
+      <PackitemsContext.Provider value={listitems}>
         <PackitemDispatchContext.Provider value={dispatch}>
           <PackitemFrame />
         </PackitemDispatchContext.Provider>
@@ -25,5 +39,3 @@ function App() {
 }
 
 export default App;
-
-

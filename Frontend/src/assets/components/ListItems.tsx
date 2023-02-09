@@ -1,14 +1,14 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useContext, useEffect, useState } from "react";
 import DeletePackitemButton from "./DeletePackitemButton";
 import ShowPackItem from "./ShowPackitem";
-import { IPackitemlist, IPackitem } from "../interfaces/IPackitems";
+import { IPackitem } from "../interfaces/IPackitems";
+import { PackitemsContext } from "../contextreducer/PackitemContext";
 
 import "../CSS/App.css";
 
-const ListItems: FunctionComponent<IPackitemlist> = ({
-  packitemlist,
-  uiDeletePackitemfromList,
-}) => {
+const ListItems = () => {
+
+  const packitemlist = useContext(PackitemsContext);
 
   return (
     <div className="ListItemsContainer">
@@ -21,7 +21,6 @@ const ListItems: FunctionComponent<IPackitemlist> = ({
               checked={packitem.checked}
             />
             <DeletePackitemButton
-              uiDeletePackitemfromList={uiDeletePackitemfromList}
               deleteThisPackitem={packitem}
             />
           </li>

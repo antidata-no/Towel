@@ -1,12 +1,22 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { useContext, FunctionComponent, useEffect, useState } from "react";
 import "../CSS/App.css";
-import { IDeletePackitem, IPackitem } from "../interfaces/IPackitems";
+import { IPackitem } from "../interfaces/IPackitems";
 import { apiDeletePackitem } from "../api/apiDeletePackitem";
+import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
 
-const DeletePackitemButton: FunctionComponent<IDeletePackitem> = ( { uiDeletePackitemfromList, deleteThisPackitem }) => {
+const DeletePackitemButton = ( {deleteThisPackitem}: {deleteThisPackitem: IPackitem} ) => {
+  const dispatchListitems = useContext(PackitemDispatchContext);
+
   async function handleDeletePackitem() {
+    /* optimistic update:
+      delete from ui, get position in return
+        add optional argument to add: position
+      delete from api
+      if not successful, issue error and insert in ui again
+    */
     await apiDeletePackitem(deleteThisPackitem);
-    uiDeletePackitemfromList(deleteThisPackitem);
+    dispatchListitems({type: "delete", payload: [deleteThisPackitem]});
+
   }
   return (
     <div className="deletePackitemButton">

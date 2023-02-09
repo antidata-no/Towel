@@ -1,11 +1,10 @@
-//import { TListItems } from "../types/Ttypes";
 
 export interface IPackitem {
   title: string;
   _id: string;
   checked: boolean;
 }
-
+/*
 export interface IPackitemlist {
   packitemlist: IPackitem[];
   uiDeletePackitemfromList: (deletePackitem: IPackitem) => void;
@@ -13,7 +12,7 @@ export interface IPackitemlist {
 
 export interface IDeletePackitem {
   deleteThisPackitem: IPackitem;
-  uiDeletePackitemfromList: (deletePackitem: IPackitem) => void;
+  //uiDeletePackitemfromList: (deletePackitem: IPackitem) => void;
 }
 
 export interface IUpdateIPackitemlist {
@@ -23,8 +22,8 @@ export interface IUpdateIPackitemlist {
     newIpackitem: IPackitem
   ) => boolean;
 }
-
+*/
 export interface IDispatchAction {
   type: string;
-  payload: IPackitem;
+  payload: IPackitem[];
 }
