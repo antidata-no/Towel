@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { IPackitem } from "../interfaces/IPackitems";
 import { apiTogglePackitemCheckbox } from "../api/apiToggleCheckbox";
 import "../CSS/App.css";
@@ -17,16 +17,16 @@ const ShowPackItem: FunctionComponent<IPackitem> = ({
   }
 
   return (
-    <div>
+    <div className="flex border-b border-gray-200 bg-teal-100 w-full">
       <label htmlFor="checked">
         <input
-          name="Checked"
+          name="checked"
           type="checkbox"
           checked={checkedstate}
           onChange={() => handleCheckboxPackitem()}
         ></input>
       </label>
-      {title}
+      <p className={checkedstate ? "ml-2 line-through font-bold" : "ml-2 font-bold"}>{title} </p>
     </div>
   );
 };

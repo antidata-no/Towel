@@ -12,7 +12,7 @@ describe("ShowPackItem component", () => {
     );
     expect(container).toBeInTheDocument();
   });
-  it("checks the checkbox if checked", () => {
+  it("shows title with line-through if checked is true", () => {
     render(<ShowPackItem title="Title" _id="12345" checked={true} />);
     expect(screen.getByText("Title")).toHaveClass('line-through');
   });

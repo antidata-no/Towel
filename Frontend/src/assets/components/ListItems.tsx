@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import DeletePackitemButton from "./DeletePackitemButton";
 import ShowPackItem from "./ShowPackitem";
 import { IPackitem } from "../interfaces/IPackitems";
@@ -11,10 +11,10 @@ const ListItems = () => {
   const packitemlist = useContext(PackitemsContext);
 
   return (
-    <div className="ListItemsContainer">
-      <ul className="packitemslist">
+    <div className="flex">
+      <ul className="w-80">
         {packitemlist.map((packitem) => (
-          <li key={packitem._id}>
+          <li key={packitem._id} className="flex">
             <ShowPackItem
               title={packitem.title}
               _id={packitem._id}

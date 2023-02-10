@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import "../CSS/App.css";
 import { IPackitem } from "../interfaces/IPackitems";
 import { apiCreatePackitem } from "../api/apiCreatePackitem";
@@ -10,7 +10,7 @@ const CreateItem = () => {
 
   async function handleCreateItem(e: React.FormEvent) {
     e.preventDefault();
-    const tempID: IPackitem["_id"] = "tempID";
+    const tempID: IPackitem["_id"] = "tempID"; // todo: generate id instead
     let packitem: IPackitem = {
       _id: `${tempID}`,
       title: `${title}`,
@@ -20,22 +20,22 @@ const CreateItem = () => {
     dispatchListitems({type: "add", payload: [packitem]});    
     setTitle("");
     let packitemfromapi = await apiCreatePackitem(packitem);
-    dispatchListitems({type: "update", payload: [packitem, packitemfromapi]});
+    dispatchListitems({type: "replace", payload: [packitem, packitemfromapi]});
  
   }
 
   return (
-    <div className="CreateItem">
+    <div>
       <form onSubmit={handleCreateItem}>
         <label htmlFor="packitem-title">Packitem title</label>
-        <input
+        <input className="border"
           id="packitem-title"
           value={title}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setTitle(e.target.value);
           }}
         />
-        <button>Add item</button>
+        <button className="border-2 font-extrabold">Add item</button>
       </form>
     </div>
   );
