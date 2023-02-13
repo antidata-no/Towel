@@ -1,7 +1,7 @@
 import { describe, expect, it, test } from "vitest";
 import ShowPackItem from "./ShowPackitem";
+import user from '@testing-library/user-event';
 import { queryAllByAttribute, queryByAttribute, queryByText, render, screen } from "@testing-library/react";
-import { shallowEqual } from "react-redux";
 
 describe("ShowPackItem component", () => {
 

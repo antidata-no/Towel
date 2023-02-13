@@ -1,0 +1,24 @@
+import { describe, expect, it, test, vitest } from "vitest";
+import CreateItem from "./CreateItem";
+import { queryAllByAttribute, queryByAttribute, queryByText, render, screen } from "@testing-library/react";
+import user from '@testing-library/user-event';
+import exp from "constants";
+import { apiCreatePackitem } from "../api/apiCreatePackitem";
+
+// tests to make:
+// if form works
+// handle empty form
+// user.keyboard('{Enter}');
+// user.click(element);
+// does it update backend
+// does it update frontend
+
+const mock = vitest.fn();
+// <Component props={mock} />
+
+// mock these functions:
+// dispatchListitems
+// apiCreatePackitem
+
+expect(mock).toHaveBeenCalled();
+//expect(mock).toHaveBeenCalledWith(what arguments)

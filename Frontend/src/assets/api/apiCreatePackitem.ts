@@ -3,7 +3,7 @@ import { API_URL } from "../config";
 
 export async function apiCreatePackitem(packitem: IPackitem): Promise<IPackitem> {
 
-  const response = await fetch(`${API_URL}/packitems`, {
+  const response = await fetch(`${API_URL}/packitem`, {
     method: "POST",
     body: JSON.stringify({
       title: `${packitem.title}`,
