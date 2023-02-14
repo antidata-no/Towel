@@ -24,12 +24,8 @@ mongoose.set("strictQuery", false);
 app.get("/listpackitems", listPackitemsController);
 app.post("/packitem", createPackitemController);
 app.delete("/packitem/:packitemId",createPackitemController);
+// change to packitem method put
 app.post("/updatepackitem/:packitemId",createPackitemController);
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, moo!");
-});
-
 
 mongoose.connect(process.env.MONGO_URL!).then(() => {
   console.log(`Listening on port ${PORT}.`);

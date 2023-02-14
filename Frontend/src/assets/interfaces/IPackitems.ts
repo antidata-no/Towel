@@ -1,4 +1,10 @@
 
+export interface IListcategory {
+  title: string;
+  _id: string;
+  items: IPackitem[];
+}
+
 export interface IPackitem {
   title: string;
   _id: string;
