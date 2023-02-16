@@ -31,7 +31,6 @@ const CreateItem = ({ category }: { category: ICategory }) => {
         updatedcategory.items[i] = packitemfromapi;
       } 
     };
-
     dispatchCategories({ type: "replace", payload: [category, updatedcategory] });
   }
 

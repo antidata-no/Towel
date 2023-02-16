@@ -1,26 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import DeletePackitemButton from "./DeletePackitemButton";
 import ShowPackItem from "./ShowPackitem";
-import { IPackitem } from "../interfaces/IPackitems";
-import { PackitemsContext } from "../contextreducer/PackitemContext";
+import { IPackitem, ICategory } from "../interfaces/Interfaces";
 
-const ListItems = () => {
-
-  const packitemlist = useContext(PackitemsContext);
-
+const ListItems = ({ category }: { category: ICategory }) => {
   return (
     <div className="flex">
       <ul className="w-80">
-        {packitemlist.map((packitem) => (
+        {category.items.map((packitem) => (
           <li key={packitem._id} className="flex">
-            <ShowPackItem
-              title={packitem.title}
-              _id={packitem._id}
-              checked={packitem.checked}
-            />
-            <DeletePackitemButton
-              deleteThisPackitem={packitem}
-            />
+            {packitem.title}
+
+            <ShowPackItem categoryid={category._id} packitem={packitem} />
+
+            {/*<DeletePackitemButton deleteThisPackitem={packitem} /> */}
           </li>
         ))}
       </ul>
