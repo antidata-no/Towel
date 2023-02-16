@@ -1,3 +1,5 @@
+// model not necessary anymore, delete file whenever
+
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;

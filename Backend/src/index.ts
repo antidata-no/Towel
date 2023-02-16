@@ -5,7 +5,12 @@ import Packitem from "./models/Packitem";
 import dotenv from "dotenv";
 import { listPackitemsController } from "./controllers/listPackitemsController";
 import { createPackitemController } from "./controllers/createPackitemController";
- 
+import { listCategoriesController } from "./controllers/listCategoriesController"; 
+import { createCategoryController } from "./controllers/createCategoryController";
+import { deleteCategoryController } from "./controllers/deleteCategoryController";
+import { updatePackitemController } from "./controllers/updatePackitemController";
+import { deletePackitemController } from "./controllers/deletePackitemController";
+
 
 dotenv.config();
 
@@ -21,11 +26,32 @@ app.use(express.json());
 
 mongoose.set("strictQuery", false);
 
-app.get("/listpackitems", listPackitemsController);
-app.post("/packitem", createPackitemController);
-app.delete("/packitem/:packitemId",createPackitemController);
-// change to packitem method put
-app.post("/updatepackitem/:packitemId",createPackitemController);
+// Todo: new routes:
+
+// list all categories with packitems
+app.get("/category", listCategoriesController);
+
+// create category
+app.post("/category", createCategoryController);
+
+// delete category
+app.delete("/category/:categoryId",deleteCategoryController);
+
+// update category
+app.put("/category/:categoryId", createCategoryController);
+
+// should not be necessary anymore
+//app.get("/listpackitems", listPackitemsController);
+
+// create packitem
+app.post("/category/:categoryId/packitem", createPackitemController);
+
+// delete packitem
+app.delete("/category/:categoryId/packitem/:packitemId",deletePackitemController);
+
+// update packitem. todo: change to packitem method put
+app.put("/category/:categoryId/packitem/:packitemId",updatePackitemController);
+
 
 mongoose.connect(process.env.MONGO_URL!).then(() => {
   console.log(`Listening on port ${PORT}.`);

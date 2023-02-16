@@ -4,8 +4,6 @@ import ShowPackItem from "./ShowPackitem";
 import { IPackitem } from "../interfaces/IPackitems";
 import { PackitemsContext } from "../contextreducer/PackitemContext";
 
-import "../CSS/App.css";
-
 const ListItems = () => {
 
   const packitemlist = useContext(PackitemsContext);

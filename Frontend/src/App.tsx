@@ -5,10 +5,10 @@ import {
   packitemsReducer,
 } from "./assets/contextreducer/PackitemContext";
 import { IPackitem } from "./assets/interfaces/IPackitems";
-import CreateItem from "./assets/components/CreateItem";
-import ListItems from "./assets/components/ListItems";
 import { apiGetItemlist } from "./assets/api/apiGetItemlist";
 import "./assets/CSS/App.css";
+import CreateList from "./assets/components/CreateList";
+import ListCategories from "./assets/components/ListCategories";
 
 function App() {
   let initialList: IPackitem[] = [];
@@ -28,8 +28,8 @@ function App() {
     <div className="App">
       <PackitemsContext.Provider value={listitems}>
         <PackitemDispatchContext.Provider value={dispatch}>
-          <CreateItem />
-          <ListItems />
+          {/*<CreateList />*/}
+          <ListCategories />
         </PackitemDispatchContext.Provider>
       </PackitemsContext.Provider>
     </div>
