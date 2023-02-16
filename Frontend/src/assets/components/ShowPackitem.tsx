@@ -1,19 +1,15 @@
 import React, { FunctionComponent, useState } from "react";
-import { IPackitem } from "../interfaces/IPackitems";
+import { ICategory, IPackitem, IShowPackitem } from "../interfaces/Interfaces";
 import { apiTogglePackitemCheckbox } from "../api/apiToggleCheckbox";
 import "../CSS/App.css";
 
-const ShowPackItem: FunctionComponent<IPackitem> = ({
-  title,
-  _id,
-  checked,
-}) => {
-  const [checkedstate, setCheckedstate] = useState(checked);
+const ShowPackItem = ({categoryid, packitem}:  IShowPackitem ) => {
+  const [checkedstate, setCheckedstate] = useState(packitem.checked);
 
   async function handleCheckboxPackitem() {
-    checked = !checkedstate;
-    setCheckedstate(checked);
-    await apiTogglePackitemCheckbox(_id, checked);
+    packitem.checked = !checkedstate;
+    setCheckedstate(packitem.checked);
+    await apiTogglePackitemCheckbox(categoryid, packitem);
   }
 
   return (
@@ -26,7 +22,7 @@ const ShowPackItem: FunctionComponent<IPackitem> = ({
           onChange={() => handleCheckboxPackitem()}
         ></input>
       </label>
-      <p className={checkedstate ? "ml-2 line-through font-bold" : "ml-2 font-bold"}>{title} </p>
+      <p className={checkedstate ? "ml-2 line-through font-bold" : "ml-2 font-bold"}>{packitem.title} </p>
     </div>
   );
 };

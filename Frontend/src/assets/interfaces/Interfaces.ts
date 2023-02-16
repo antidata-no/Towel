@@ -1,15 +1,30 @@
 
-export interface IListcategory {
+export interface ICategory {
   title: string;
   _id: string;
   items: IPackitem[];
 }
-
+export interface IDispatchAction {
+  type: string;
+  payload: ICategory[];
+}
 export interface IPackitem {
   title: string;
   _id: string;
   checked: boolean;
 }
+
+export interface IDispatchActionPackitem {
+  type: string;
+  category: ICategory["_id"];
+  payload: IPackitem[];
+}
+
+export interface IShowPackitem {
+  categoryid: ICategory["_id"];
+  packitem: IPackitem;
+}
+
 /*
 export interface IPackitemlist {
   packitemlist: IPackitem[];
@@ -29,7 +44,4 @@ export interface IUpdateIPackitemlist {
   ) => boolean;
 }
 */
-export interface IDispatchAction {
-  type: string;
-  payload: IPackitem[];
-}
+

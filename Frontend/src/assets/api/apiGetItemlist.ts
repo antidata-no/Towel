@@ -1,4 +1,4 @@
-import { IPackitem } from "../interfaces/IPackitems";
+import { IPackitem } from "../interfaces/Interfaces";
 import { API_URL } from "../config";
 
 export async function apiGetItemlist(): Promise<IPackitem[]>  {

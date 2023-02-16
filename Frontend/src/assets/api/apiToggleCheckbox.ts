@@ -1,11 +1,13 @@
-import { IPackitem } from "../interfaces/IPackitems";
+import { ICategory, IPackitem } from "../interfaces/Interfaces";
 import { API_URL } from "../config";
 
-export async function apiTogglePackitemCheckbox(_id: IPackitem["_id"], checked: IPackitem["checked"]) {
-  fetch(`${API_URL}/updatepackitem/${_id}`, {
-    method: "POST",
+export async function apiTogglePackitemCheckbox(categoryid: ICategory["_id"], packitem: IPackitem) {
+  fetch(`${API_URL}/category/${categoryid}/packitem/${packitem._id}`, {
+    method: "PUT",
     body: JSON.stringify({
-      checked,
+      title: packitem.title,
+      checked: packitem.checked,
+      order: 0
     }),
     headers: {
       "Content-Type": "application/json",

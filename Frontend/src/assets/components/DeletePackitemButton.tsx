@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../CSS/App.css";
-import { IPackitem } from "../interfaces/IPackitems";
+import { IPackitem } from "../interfaces/Interfaces";
 import { apiDeletePackitem } from "../api/apiDeletePackitem";
 import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
 

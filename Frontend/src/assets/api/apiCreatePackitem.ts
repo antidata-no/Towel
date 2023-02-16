@@ -1,9 +1,9 @@
-import { IPackitem } from "../interfaces/IPackitems";
+import { ICategory, IPackitem } from "../interfaces/Interfaces";
 import { API_URL } from "../config";
 
-export async function apiCreatePackitem(packitem: IPackitem): Promise<IPackitem> {
+export async function apiCreatePackitem(category: ICategory["_id"], packitem: IPackitem): Promise<IPackitem> {
 
-  const response = await fetch(`${API_URL}/packitem`, {
+  const response = await fetch(`${API_URL}/category/${category}/packitem`, {
     method: "POST",
     body: JSON.stringify({
       title: `${packitem.title}`,

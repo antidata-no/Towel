@@ -1,37 +1,36 @@
 import React, { useEffect, useReducer } from "react";
 import {
-  PackitemsContext,
-  PackitemDispatchContext,
-  packitemsReducer,
-} from "./assets/contextreducer/PackitemContext";
-import { IPackitem } from "./assets/interfaces/IPackitems";
+  CategoryContext,
+  CategoryDispatchContext,
+  categoryReducer,
+} from "./assets/contextreducer/CategoryContext";
+import { ICategory } from "./assets/interfaces/Interfaces";
 import { apiGetItemlist } from "./assets/api/apiGetItemlist";
 import "./assets/CSS/App.css";
-import CreateList from "./assets/components/CreateList";
+import CreateCategory from "./assets/components/CreateCategory";
 import ListCategories from "./assets/components/ListCategories";
+import { apiGetCategories } from "./assets/api/apiGetCategories";
 
 function App() {
-  let initialList: IPackitem[] = [];
-  const [listitems, dispatch] = useReducer(packitemsReducer, initialList);
+  let initialCategories: ICategory[] = [];
+  const [categories, dispatch] = useReducer(categoryReducer, initialCategories);
 
   useEffect(() => {
-    async function fetchPackitems() {
-      initialList = await apiGetItemlist();
-      await dispatch({type: "set", payload: initialList});
-      console.log("reducer");
-      console.log(listitems);
+    async function fetchCategories() {
+      initialCategories = await apiGetCategories();
+      await dispatch({type: "set", payload: initialCategories});
     }
-    fetchPackitems();
+    fetchCategories();
   }, []);
  
   return (
     <div className="App">
-      <PackitemsContext.Provider value={listitems}>
-        <PackitemDispatchContext.Provider value={dispatch}>
-          {/*<CreateList />*/}
+      <CategoryContext.Provider value={categories}>
+        <CategoryDispatchContext.Provider value={dispatch}>
+          <CreateCategory />
           <ListCategories />
-        </PackitemDispatchContext.Provider>
-      </PackitemsContext.Provider>
+        </CategoryDispatchContext.Provider>
+      </CategoryContext.Provider>
     </div>
   );
 }

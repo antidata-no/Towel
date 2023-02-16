@@ -1,32 +1,32 @@
 import React, { useContext, useState } from "react";
 import "../CSS/App.css";
-import { IListcategory } from "../interfaces/IPackitems";
-import { apiCreatePackitem } from "../api/apiCreatePackitem";
-import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
+import { ICategory } from "../interfaces/Interfaces";
+import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
+import { apiCreateCategory } from "../api/apiCreateCategory";
 
 const CreateList = () => {
   const [title, setTitle] = useState("");
-  const dispatchListitems = useContext(PackitemDispatchContext);
+  const dispatchCategories = useContext(CategoryDispatchContext);
 
-  async function handleCreateList(e: React.FormEvent) {
+  async function handleCreateCategory(e: React.FormEvent) {
     e.preventDefault();
-    const tempID: IListcategory["_id"] = "tempID"; // todo: generate id instead
-    let packitem: IListcategory = {
+    const tempID: ICategory["_id"] = "tempID"; // todo: generate id instead
+    let newcategory: ICategory = {
       _id: `${tempID}`,
       title: `${title}`,
       items: []
     };
     
-    //dispatchListitems({type: "add", payload: [packitem]});    
+    dispatchCategories({type: "add", payload: [newcategory]});    
     setTitle("");
-    //let packitemfromapi = await apiCreatePackitem(packitem);
-    //dispatchListitems({type: "replace", payload: [packitem, packitemfromapi]});
+    let categoryfromapi = await apiCreateCategory(newcategory);
+    dispatchCategories({type: "replace", payload: [newcategory, categoryfromapi]});
  
   }
 
   return (
     <div>
-      <form onSubmit={handleCreateList}>
+      <form onSubmit={handleCreateCategory}>
         <label htmlFor="listcategory-title">Category title</label>
         <input className="border"
           id="listcategory-title"
