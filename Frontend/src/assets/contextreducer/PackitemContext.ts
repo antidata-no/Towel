@@ -1,5 +1,7 @@
+// delete this file, do not use
+/*
 import { createContext } from "react";
-import { IPackitem, IDispatchAction } from "../interfaces/IPackitems";
+import { IPackitem, ICategory, IDispatchActionPackitem } from "../interfaces/Interfaces";
 
 const initPackitem: IPackitem = {
   title: "",
@@ -9,10 +11,9 @@ const initPackitem: IPackitem = {
 const dispatchTemplate = () => {};
 
 export const PackitemsContext = createContext<IPackitem[]>([initPackitem]);
-export const PackitemDispatchContext =
-  createContext<React.Dispatch<IDispatchAction>>(dispatchTemplate);
+export const PackitemDispatchContext = createContext<React.Dispatch<IDispatchActionPackitem>>(dispatchTemplate);
 
-export const packitemsReducer = (packitems: IPackitem[],action: IDispatchAction): IPackitem[] => {
+export const packitemsReducer = (category: ICategory["_id"], packitems: IPackitem[], action: IDispatchActionPackitem): IPackitem[] => {
   switch (action.type) {
     case "set":
       return [...action.payload];
@@ -35,3 +36,4 @@ export const packitemsReducer = (packitems: IPackitem[],action: IDispatchAction)
       return packitems;
   }
 };
+*/
