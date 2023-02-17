@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 
 const PackitemSchema = new Schema({
   title: String,
-  checked: Boolean
+  checked: Boolean,
+  order: Number
 });
 
 const PackitemModel = mongoose.model("Packitem", PackitemSchema);

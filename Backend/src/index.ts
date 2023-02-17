@@ -53,7 +53,12 @@ app.delete("/category/:categoryId/packitem/:packitemId",deletePackitemController
 app.put("/category/:categoryId/packitem/:packitemId",updatePackitemController);
 
 
-mongoose.connect(process.env.MONGO_URL!).then(() => {
-  console.log(`Listening on port ${PORT}.`);
-  app.listen(PORT);
-});
+mongoose.connect(process.env.MONGO_URL!).then(
+  () => {
+      console.log(`Listening on port ${PORT}.`);
+      app.listen(PORT);
+  },
+  err => {
+    console.log("Could not connect to database: " + err);
+  }
+);

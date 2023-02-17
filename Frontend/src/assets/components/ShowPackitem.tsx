@@ -3,7 +3,7 @@ import { ICategory, IPackitem, IShowPackitem } from "../interfaces/Interfaces";
 import { apiTogglePackitemCheckbox } from "../api/apiToggleCheckbox";
 import "../CSS/App.css";
 
-const ShowPackItem = ({categoryid, packitem}:  IShowPackitem ) => {
+const ShowPackItem = ({ categoryid, packitem }: IShowPackitem) => {
   const [checkedstate, setCheckedstate] = useState(packitem.checked);
 
   async function handleCheckboxPackitem() {
@@ -22,7 +22,11 @@ const ShowPackItem = ({categoryid, packitem}:  IShowPackitem ) => {
           onChange={() => handleCheckboxPackitem()}
         ></input>
       </label>
-      <p className={checkedstate ? "ml-2 line-through font-bold" : "ml-2 font-bold"}>{packitem.title} </p>
+      <p className={
+          checkedstate ? "ml-2 line-through font-bold" : "ml-2 font-bold"
+        }>
+        {packitem.title}
+      </p>
     </div>
   );
 };
