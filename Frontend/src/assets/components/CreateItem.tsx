@@ -4,6 +4,7 @@ import { IPackitem, ICategory } from "../interfaces/Interfaces";
 import { apiCreatePackitem } from "../api/apiCreatePackitem";
 //import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
 import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
+import Button from "./UI/Button";
 
 const CreateItem = ({ category }: { category: ICategory }) => {
   const [itemtitle, setItemtitle] = useState("");
@@ -46,7 +47,7 @@ const CreateItem = ({ category }: { category: ICategory }) => {
             setItemtitle(e.target.value);
           }}
         />
-        <button className="border-2 font-extrabold">Add item</button>
+        <Button type="submit">Add item</Button>
       </form>
     </div>
   );

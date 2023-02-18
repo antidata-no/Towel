@@ -17,7 +17,7 @@ describe("ShowPackItem component", () => {
     const { container } = render(
       <ShowPackItem categoryid="0"  packitem={packitem}/>
     );
-    screen.logTestingPlaygroundURL();
+    //screen.logTestingPlaygroundURL();
     expect(container).toBeInTheDocument();
   });
   packitem.checked = true;

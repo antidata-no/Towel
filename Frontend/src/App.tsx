@@ -10,6 +10,7 @@ import "./assets/CSS/App.css";
 import CreateCategory from "./assets/components/CreateCategory";
 import ListCategories from "./assets/components/ListCategories";
 import { apiGetCategories } from "./assets/api/apiGetCategories";
+import Frame from "./assets/components/UI/Frame";
 
 function App() {
   let initialCategories: ICategory[] = [];
@@ -25,12 +26,14 @@ function App() {
  
   return (
     <div className="App">
+      <Frame>
       <CategoryContext.Provider value={categories}>
         <CategoryDispatchContext.Provider value={dispatch}>
           <CreateCategory />
           <ListCategories />
         </CategoryDispatchContext.Provider>
       </CategoryContext.Provider>
+      </Frame>
     </div>
   );
 }

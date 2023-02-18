@@ -25,6 +25,13 @@ export interface IShowPackitem {
   packitem: IPackitem;
 }
 
+export interface IError {
+  title: string;
+  message: string;
+  onConfirm: () => void;
+}
+
+
 /*
 export interface IPackitemlist {
   packitemlist: IPackitem[];
