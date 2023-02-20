@@ -48,6 +48,7 @@ const CreateList = () => {
         onSubmitHandler={handleCreateCategory}
         labelid="listcategory-title"
         labelText="Add category"
+        placeholder="Type here"
         onChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) => {
           setTitle(e.target.value);
         }}

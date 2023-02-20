@@ -44,6 +44,7 @@ const CreateItem = ({ category }: { category: ICategory }) => {
         onSubmitHandler={handleCreateItem}
         labelid="packitem-title"
         labelText="Add item"
+        placeholder="Type here"
         onChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) => {
           setItemtitle(e.target.value);
         }}
@@ -56,24 +57,4 @@ const CreateItem = ({ category }: { category: ICategory }) => {
 
 export default CreateItem;
 
-//let packitemfromapi = await apiCreatePackitem(packitem);
-//dispatchCategories({type: "replaceitem", payload: [packitem, packitemfromapi]});
 
-/*
-  const [title, setTitle] = useState("");
-  const dispatchListitems = useContext(PackitemDispatchContext);
-
-  async function handleCreateItem(e: React.FormEvent) {
-    e.preventDefault();
-    const tempID: IPackitem["_id"] = "tempID"; // todo: generate id instead
-    let packitem: IPackitem = {
-      _id: `${tempID}`,
-      title: `${title}`,
-      checked: false,
-    };
-    
-    dispatchListitems({type: "add", payload: [packitem]});    
-    setTitle("");
-    let packitemfromapi = await apiCreatePackitem(packitem);
-    dispatchListitems({type: "replace", payload: [packitem, packitemfromapi]});
- */

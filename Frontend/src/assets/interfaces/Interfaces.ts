@@ -33,11 +33,11 @@ export interface IError {
 }
 
 export interface IInputandButton {
-  onSubmitHandler: () => void;
+  onSubmitHandler: (e: React.FormEvent<Element>) => void;
   labelid: string;
   labelText: string;
   placeholder: string;
-  onChangeHandler: () => void;
+  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   buttonText: string;
 }
 
