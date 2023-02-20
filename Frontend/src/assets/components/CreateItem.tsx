@@ -5,6 +5,7 @@ import { apiCreatePackitem } from "../api/apiCreatePackitem";
 //import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
 import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
 import Button from "./UI/Button";
+import Input from "./UI/Input";
 
 const CreateItem = ({ category }: { category: ICategory }) => {
   const [itemtitle, setItemtitle] = useState("");
@@ -35,20 +36,20 @@ const CreateItem = ({ category }: { category: ICategory }) => {
     dispatchCategories({ type: "replace", payload: [category, updatedcategory] });
   }
 
+// todo: create errormodal, but only one, not for every input field
+
   return (
     <div>
-      <form onSubmit={handleCreateItem}>
-        <label htmlFor="packitem-title">Packitem title</label>
-        <input
-          className="border"
-          id="packitem-title"
-          value={itemtitle}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setItemtitle(e.target.value);
-          }}
-        />
-        <Button type="submit">Add item</Button>
-      </form>
+      <Input
+        onSubmitHandler={handleCreateItem}
+        labelid="packitem-title"
+        labelText="Add item"
+        onChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setItemtitle(e.target.value);
+        }}
+        buttonText="Add item"
+      />
+
     </div>
   );
 };

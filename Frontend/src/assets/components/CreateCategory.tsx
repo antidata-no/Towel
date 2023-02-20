@@ -5,6 +5,7 @@ import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
 import { apiCreateCategory } from "../api/apiCreateCategory";
 import Button from "./UI/Button";
 import ErrorModal from "./UI/ErrorModal";
+import Input from "./UI/Input";
 
 const CreateList = () => {
   const [title, setTitle] = useState("");
@@ -34,33 +35,24 @@ const CreateList = () => {
       payload: [newcategory, categoryfromapi],
     });
   }
-/*
-  const errorHandler = () => {
-    setError({ title: "", message: "" });
-  };
-*/
+
   return (
     <div>
-   
-        <ErrorModal
-          title="Empty field"
-          message="Please enter a valid category name"
-          show={error}
-          setShow={setError}
-        />
-  
-      <form onSubmit={handleCreateCategory}>
-        <label htmlFor="listcategory-title">Category title</label>
-        <input
-          className="border"
-          id="listcategory-title"
-          value={title}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <Button type="submit">Add category</Button>
-      </form>
+      <ErrorModal
+        title="Empty field"
+        message="Please enter a valid category name"
+        show={error}
+        setShow={setError}
+      />
+      <Input
+        onSubmitHandler={handleCreateCategory}
+        labelid="listcategory-title"
+        labelText="Add category"
+        onChangeHandler={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setTitle(e.target.value);
+        }}
+        buttonText="Add category"
+      />
     </div>
   );
 };

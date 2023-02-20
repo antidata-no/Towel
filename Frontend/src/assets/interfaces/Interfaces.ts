@@ -32,6 +32,17 @@ export interface IError {
   setShow: (show: boolean) => void;
 }
 
+export interface IInputandButton {
+  onSubmitHandler: () => void;
+  labelid: string;
+  labelText: string;
+  placeholder: string;
+  onChangeHandler: () => void;
+  buttonText: string;
+}
+
+
+
 
 /*
 export interface IPackitemlist {
