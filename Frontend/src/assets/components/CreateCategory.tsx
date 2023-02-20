@@ -8,17 +8,14 @@ import ErrorModal from "./UI/ErrorModal";
 
 const CreateList = () => {
   const [title, setTitle] = useState("");
-  const [error, setError] = useState({ title: "", message: "" });
+  const [error, setError] = useState<boolean>(false);
   const dispatchCategories = useContext(CategoryDispatchContext);
 
   async function handleCreateCategory(e: React.FormEvent) {
     e.preventDefault();
 
     if (title.trim().length === 0) {
-      setError({
-        title: "Empty field",
-        message: "Please enter a valid category name.",
-      });
+      setError(true);
       return;
     }
 
@@ -37,20 +34,21 @@ const CreateList = () => {
       payload: [newcategory, categoryfromapi],
     });
   }
-
+/*
   const errorHandler = () => {
     setError({ title: "", message: "" });
   };
-
+*/
   return (
     <div>
-      {error.title !== "" && (
+   
         <ErrorModal
-          title={error.title}
-          message={error.message}
-          onConfirm={errorHandler}
+          title="Empty field"
+          message="Please enter a valid category name"
+          show={error}
+          setShow={setError}
         />
-      )}
+  
       <form onSubmit={handleCreateCategory}>
         <label htmlFor="listcategory-title">Category title</label>
         <input

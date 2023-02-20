@@ -10,7 +10,7 @@ const ListCategories = () => {
   return (
     <>
       {categories.map((category) => (
-        <Collapse title={category.title}>
+        <Collapse title={category.title} key={category._id}>
           <CreateItem category={category} />
           <ListItems category={category} />
         </Collapse>

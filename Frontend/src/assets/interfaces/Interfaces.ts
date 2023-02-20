@@ -28,7 +28,8 @@ export interface IShowPackitem {
 export interface IError {
   title: string;
   message: string;
-  onConfirm: () => void;
+  show: boolean;
+  setShow: (show: boolean) => void;
 }
 
 
