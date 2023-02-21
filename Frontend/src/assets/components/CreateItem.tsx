@@ -7,12 +7,20 @@ import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
 
+import { SetShowerrorModalContext } from "../contextreducer/ModalContext";
+
 const CreateItem = ({ category }: { category: ICategory }) => {
   const [itemtitle, setItemtitle] = useState("");
   const dispatchCategories = useContext(CategoryDispatchContext);
+  const setError = useContext(SetShowerrorModalContext);
 
   async function handleCreateItem(e: React.FormEvent) {
     e.preventDefault();
+
+    if (itemtitle.trim().length === 0) {
+      setError(true);
+      return;
+    }
     const tempID: IPackitem["_id"] = "tempID"; // todo: generate id instead
     const packitem: IPackitem = {
       _id: `${tempID}`,
@@ -36,7 +44,7 @@ const CreateItem = ({ category }: { category: ICategory }) => {
     dispatchCategories({ type: "replace", payload: [category, updatedcategory] });
   }
 
-// todo: create errormodal, but only one, not for every input field
+// todo: create errormodal, but only one, not one for every input field
 
   return (
     <div>
