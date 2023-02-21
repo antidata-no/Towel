@@ -44,8 +44,6 @@ const CreateItem = ({ category }: { category: ICategory }) => {
     dispatchCategories({ type: "replace", payload: [category, updatedcategory] });
   }
 
-// todo: create errormodal, but only one, not one for every input field
-
   return (
     <div>
       <Input

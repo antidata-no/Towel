@@ -4,13 +4,15 @@ import { ICategory, IError } from "../interfaces/Interfaces";
 import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
 import { apiCreateCategory } from "../api/apiCreateCategory";
 import Button from "./UI/Button";
-import ErrorModal from "./UI/ErrorModal";
+
 import Input from "./UI/Input";
+import { SetShowerrorModalContext } from "../contextreducer/ModalContext";
 
 const CreateList = () => {
   const [title, setTitle] = useState("");
-  const [error, setError] = useState<boolean>(false);
+  //const [error, setError] = useState<boolean>(false);
   const dispatchCategories = useContext(CategoryDispatchContext);
+  const setError = useContext(SetShowerrorModalContext);
 
   async function handleCreateCategory(e: React.FormEvent) {
     e.preventDefault();
@@ -38,12 +40,7 @@ const CreateList = () => {
 
   return (
     <div>
-      <ErrorModal
-        title="Empty field"
-        message="Please enter a valid category name"
-        show={error}
-        setShow={setError}
-      />
+
       <Input
         onSubmitHandler={handleCreateCategory}
         labelid="listcategory-title"
