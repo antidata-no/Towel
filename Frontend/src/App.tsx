@@ -2,8 +2,8 @@ import React, { useEffect, useReducer, useState } from "react";
 import {
   CategoryContext,
   CategoryDispatchContext,
-  categoryReducer,
-} from "./assets/contextreducer/CategoryContext";
+  
+} from "./assets/ContextsAndReducers/CategoryContext";
 import { ICategory } from "./assets/interfaces/Interfaces";
 import { apiGetItemlist } from "./assets/api/apiGetItemlist";
 import "./assets/CSS/App.css";
@@ -15,7 +15,8 @@ import ErrorModal from "./assets/components/UI/ErrorModal";
 import {
   SetShowerrorModalContext,
   ShowerrorModalContext,
-} from "./assets/contextreducer/ModalContext";
+} from "./assets/ContextsAndReducers/ModalContext";
+import categoryReducer from "./assets/ContextsAndReducers/CategoryReducer";
 
 function App() {
   let initialCategories: ICategory[] = [];

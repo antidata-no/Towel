@@ -11,18 +11,13 @@ const initCategories: ICategory = {
   items: [],
 };
 
-const initPackitem: IPackitem = {
-  title: "",
-  _id: "",
-  checked: false,
-};
-
 const dispatchTemplate = () => {};
 
 export const CategoryContext = createContext<ICategory[]>([initCategories]);
 export const CategoryDispatchContext =
   createContext<React.Dispatch<IDispatchAction>>(dispatchTemplate);
 
+/*
 export const categoryReducer = (
   Categories: ICategory[],
   action: IDispatchAction
@@ -59,3 +54,4 @@ export const categoryReducer = (
       return Categories;
   }
 };
+*/

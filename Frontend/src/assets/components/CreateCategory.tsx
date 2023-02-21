@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import "../CSS/App.css";
 import { ICategory, IError } from "../interfaces/Interfaces";
-import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
+import { CategoryDispatchContext } from "../ContextsAndReducers/CategoryContext";
 import { apiCreateCategory } from "../api/apiCreateCategory";
 import Button from "./UI/Button";
 
 import Input from "./UI/Input";
-import { SetShowerrorModalContext } from "../contextreducer/ModalContext";
+import { SetShowerrorModalContext } from "../ContextsAndReducers/ModalContext";
 
 const CreateList = () => {
   const [title, setTitle] = useState("");

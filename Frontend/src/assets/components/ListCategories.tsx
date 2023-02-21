@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 //import { Collapse } from "react-daisyui";
-import { CategoryContext } from "../contextreducer/CategoryContext";
+import { CategoryContext } from "../ContextsAndReducers/CategoryContext";
 import CreateItem from "./CreateItem";
 import ListItems from "./ListItems";
 import Collapse from "./UI/Collapse";

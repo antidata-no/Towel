@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../CSS/App.css";
 import { IPackitem } from "../interfaces/Interfaces";
 import { apiDeletePackitem } from "../api/apiDeletePackitem";
-import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
+import { PackitemDispatchContext } from "../ContextsAndReducers/PackitemContext";
 
 const DeletePackitemButton = ( {deleteThisPackitem}: {deleteThisPackitem: IPackitem} ) => {
   const dispatchListitems = useContext(PackitemDispatchContext);

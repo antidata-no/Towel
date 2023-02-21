@@ -3,11 +3,11 @@ import "../CSS/App.css";
 import { IPackitem, ICategory } from "../interfaces/Interfaces";
 import { apiCreatePackitem } from "../api/apiCreatePackitem";
 //import { PackitemDispatchContext } from "../contextreducer/PackitemContext";
-import { CategoryDispatchContext } from "../contextreducer/CategoryContext";
+import { CategoryDispatchContext } from "../ContextsAndReducers/CategoryContext";
 import Button from "./UI/Button";
 import Input from "./UI/Input";
 
-import { SetShowerrorModalContext } from "../contextreducer/ModalContext";
+import { SetShowerrorModalContext } from "../ContextsAndReducers/ModalContext";
 
 const CreateItem = ({ category }: { category: ICategory }) => {
   const [itemtitle, setItemtitle] = useState("");
