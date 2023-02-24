@@ -41,7 +41,7 @@ const CreateList = () => {
   return (
     <div>
 
-      <Input
+{      <Input
         onSubmitHandler={handleCreateCategory}
         labelid="listcategory-title"
         labelText="Add category"
@@ -50,7 +50,7 @@ const CreateList = () => {
           setTitle(e.target.value);
         }}
         buttonText="Add category"
-      />
+      />}
     </div>
   );
 };
