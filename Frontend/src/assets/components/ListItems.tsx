@@ -15,7 +15,7 @@ const ListItems = ({ category }: { category: ICategory }) => {
                 <td>
                   <ShowPackItem categoryid={category._id} packitem={packitem} />
 
-                  {/*<DeletePackitemButton deleteThisPackitem={packitem} /> */}
+                  <DeletePackitemButton category={category} packitem={packitem} />
                 </td>
               </tr>
             ))}

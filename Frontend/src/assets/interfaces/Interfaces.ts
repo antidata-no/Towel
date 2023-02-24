@@ -25,6 +25,11 @@ export interface IShowPackitem {
   packitem: IPackitem;
 }
 
+export interface IDeletePackitem {
+  category: ICategory;
+  packitem: IPackitem;
+}
+
 export interface IError {
   title: string;
   message: string;
@@ -39,6 +44,7 @@ export interface IInputandButton {
   placeholder: string;
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   buttonText: string;
+  value: string;
 }
 
 

@@ -43,6 +43,7 @@ const CreateList = () => {
 
 {      <Input
         onSubmitHandler={handleCreateCategory}
+        value={title}
         labelid="listcategory-title"
         labelText="Add category"
         placeholder="Type here"

@@ -14,6 +14,7 @@ const Input = (props: IInputandButton) => {
             placeholder={props.placeholder}
             className="input input-bordered w-full max-w-xs"
             id={props.labelid}
+            value={props.value}
             onChange={props.onChangeHandler}
           />
           <Button type="submit">{props.buttonText}</Button>

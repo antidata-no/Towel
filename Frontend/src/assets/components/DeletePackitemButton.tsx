@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import "../CSS/App.css";
-import { IPackitem } from "../interfaces/Interfaces";
+import {
+  ICategory,
+  IDeletePackitem,
+  IPackitem,
+} from "../interfaces/Interfaces";
 import { apiDeletePackitem } from "../api/apiDeletePackitem";
-import { PackitemDispatchContext } from "../ContextsAndReducers/PackitemContext";
+import { CategoryDispatchContext } from "../ContextsAndReducers/CategoryContext";
+import Button from "./UI/Button";
 
-const DeletePackitemButton = ( {deleteThisPackitem}: {deleteThisPackitem: IPackitem} ) => {
-  const dispatchListitems = useContext(PackitemDispatchContext);
+const DeletePackitemButton = ({ category, packitem }: IDeletePackitem) => {
+  const dispatchCategories = useContext(CategoryDispatchContext);
 
   async function handleDeletePackitem() {
     /* optimistic update:
@@ -14,15 +19,21 @@ const DeletePackitemButton = ( {deleteThisPackitem}: {deleteThisPackitem: IPacki
       delete from api
       if not successful, issue error and insert in ui again
     */
-    await apiDeletePackitem(deleteThisPackitem);
-    dispatchListitems({type: "delete", payload: [deleteThisPackitem]});
+    await apiDeletePackitem(category._id, packitem);
+
+    let updatedcategory: ICategory = {...category};
+
+    updatedcategory.items = category.items.filter((item: IPackitem) => {
+      return item._id !== packitem._id;
+    });
+    dispatchCategories({ type: "replace", payload: [category, updatedcategory] });
 
   }
   return (
     <div className="deletePackitemButton">
-      <button onClick={() => handleDeletePackitem()}>X</button>
+      <button className="btn" onClick={() => handleDeletePackitem()}>X</button>
     </div>
   );
-}
+};
 
 export default DeletePackitemButton;

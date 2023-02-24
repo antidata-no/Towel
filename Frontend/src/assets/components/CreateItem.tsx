@@ -48,6 +48,7 @@ const CreateItem = ({ category }: { category: ICategory }) => {
     <div>
       <Input
         onSubmitHandler={handleCreateItem}
+        value={itemtitle}
         labelid="packitem-title"
         labelText="Add item"
         placeholder="Type here"
