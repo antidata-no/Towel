@@ -1,3 +1,4 @@
+// todo: unmess this
 
 export interface ICategory {
   title: string;
@@ -47,26 +48,4 @@ export interface IInputandButton {
   value: string;
 }
 
-
-
-
-/*
-export interface IPackitemlist {
-  packitemlist: IPackitem[];
-  uiDeletePackitemfromList: (deletePackitem: IPackitem) => void;
-}
-
-export interface IDeletePackitem {
-  deleteThisPackitem: IPackitem;
-  //uiDeletePackitemfromList: (deletePackitem: IPackitem) => void;
-}
-
-export interface IUpdateIPackitemlist {
-  uiAddPackitemtoList: (newIpackitem: IPackitem) => void;
-  uiUpdatePackitem: (
-    idToUpdate: IPackitem["_id"],
-    newIpackitem: IPackitem
-  ) => boolean;
-}
-*/
 

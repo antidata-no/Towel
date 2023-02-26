@@ -13,7 +13,7 @@ const DeletePackitemButton = ({ category, packitem }: IDeletePackitem) => {
   const dispatchCategories = useContext(CategoryDispatchContext);
 
   async function handleDeletePackitem() {
-    /* optimistic update:
+    /* todo: optimistic update:
       delete from ui, get position in return
         add optional argument to add: position
       delete from api
@@ -30,9 +30,7 @@ const DeletePackitemButton = ({ category, packitem }: IDeletePackitem) => {
 
   }
   return (
-    <div className="deletePackitemButton">
-      <button className="btn" onClick={() => handleDeletePackitem()}>X</button>
-    </div>
+      <button className="btn btn-outline btn-secondary" onClick={() => handleDeletePackitem()}>X</button>
   );
 };
 

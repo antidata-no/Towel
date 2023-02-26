@@ -9,14 +9,14 @@ const ListCategories = () => {
   const categories = useContext(CategoryContext);
 
   return (
-    <>
+    <div>
       {categories.map((category) => (
         <Collapse title={category.title} key={category._id}>
           <CreateItem category={category} />
           <ListItems category={category} />
         </Collapse>
       ))}
-    </>
+    </div>
   );
 };
 

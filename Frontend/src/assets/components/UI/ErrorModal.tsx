@@ -2,6 +2,7 @@ import RenderInBackdrop from "./RenderInBackdrop";
 import { IError } from "../../interfaces/Interfaces";
 
 const ErrorModal = (props: IError) => {
+  
   const handleDismiss = () => {
     props.setShow(false);
   };

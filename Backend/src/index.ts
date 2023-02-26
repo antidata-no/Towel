@@ -26,8 +26,6 @@ app.use(express.json());
 
 mongoose.set("strictQuery", false);
 
-// Todo: new routes:
-
 // list all categories with packitems
 app.get("/category", listCategoriesController);
 
@@ -49,7 +47,7 @@ app.post("/category/:categoryId/packitem", createPackitemController);
 // delete packitem
 app.delete("/category/:categoryId/packitem/:packitemId",deletePackitemController);
 
-// update packitem. todo: change to packitem method put
+// update packitem.
 app.put("/category/:categoryId/packitem/:packitemId",updatePackitemController);
 
 

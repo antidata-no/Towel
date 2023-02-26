@@ -20,9 +20,9 @@ export const deletePackitemController = async (req: Request, res: Response) => {
   );
   if (!category)
     return res
-      .status(400)
+      .status(404)
       .send(
-        `Could not delete item, no category with id ${categoryId} or no item with id ${packitemId}.`
+        `Could not delete item, no category with id ${categoryId} and/or no item with id ${packitemId}.`
       );
   res.json(category);
 };

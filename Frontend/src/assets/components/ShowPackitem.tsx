@@ -14,17 +14,19 @@ const ShowPackItem = ({ categoryid, packitem }: IShowPackitem) => {
 
   return (
     <>
-      <div className="form-control">
+      <div className="form-control m-2">
         <label className="label cursor-pointer" htmlFor={packitem._id}>
-          <input
-            name="checked"
-            checked={checkedstate}
-            onChange={() => handleCheckboxPackitem()}
-            className="checkbox"
-            type="checkbox"
-            value=""
-            id={packitem._id}
-          />
+          <div className="mr-2">
+            <input
+              name="checked"
+              checked={checkedstate}
+              onChange={() => handleCheckboxPackitem()}
+              className="checkbox checkbox-accent"
+              type="checkbox"
+              value=""
+              id={packitem._id}
+            />
+          </div>
           <span
             className={checkedstate ? "label-text line-through" : "label-text"}
           >
@@ -37,10 +39,3 @@ const ShowPackItem = ({ categoryid, packitem }: IShowPackitem) => {
 };
 
 export default ShowPackItem;
-
-/*
-
-         form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer
-
-
-          */
