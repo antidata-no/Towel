@@ -1,7 +1,7 @@
 import { describe, expect, it, test, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import CreateItem from "./CreateItem";
+import CreateCategory from './CreateCategory';
 import { ICategory, IPackitem } from "../interfaces/Interfaces";
 
 const testitem: IPackitem = {
@@ -17,7 +17,7 @@ const testcategory: ICategory = {
 };
 
 test("it shows one input and a button", () => {
-	render(<CreateItem category={testcategory} />);
+	render(<CreateCategory/>);
 
 	const inputs = screen.getAllByRole("textbox");
 	const button = screen.getByRole("button");
@@ -28,9 +28,9 @@ test("it shows one input and a button", () => {
 
 test("it empties form field after click", () => {
     
-    vi.mock('../api/apiCreatePackitem');
+    vi.mock('../api/apiCreateCategory');
 
-	render(<CreateItem category={testcategory} />);
+	render(<CreateCategory />);
 
 	const input = screen.getByRole("textbox");
 	const button = screen.getByRole("button");
