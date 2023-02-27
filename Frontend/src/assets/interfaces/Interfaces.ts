@@ -1,51 +1,49 @@
 // todo: unmess this
 
 export interface ICategory {
-  title: string;
-  _id: string;
-  items: IPackitem[];
+	title: string;
+	_id: string;
+	items: IPackitem[];
 }
 export interface IDispatchAction {
-  type: string;
-  payload: ICategory[];
+	type: string;
+	payload: ICategory[];
 }
 export interface IPackitem {
-  title: string;
-  _id: string;
-  checked: boolean;
+	title: string;
+	_id: string;
+	checked: boolean;
 }
 
 export interface IDispatchActionPackitem {
-  type: string;
-  category: ICategory["_id"];
-  payload: IPackitem[];
+	type: string;
+	category: ICategory["_id"];
+	payload: IPackitem[];
 }
 
 export interface IShowPackitem {
-  categoryid: ICategory["_id"];
-  packitem: IPackitem;
+	categoryid: ICategory["_id"];
+	packitem: IPackitem;
 }
 
 export interface IDeletePackitem {
-  category: ICategory;
-  packitem: IPackitem;
+	category: ICategory;
+	packitem: IPackitem;
 }
 
 export interface IError {
-  title: string;
-  message: string;
-  show: boolean;
-  setShow: (show: boolean) => void;
+	title: string;
+	message: string;
+	show: boolean;
+	setShow: (show: boolean) => void;
 }
 
 export interface IInputandButton {
-  onSubmitHandler: (e: React.FormEvent<Element>) => void;
-  labelid: string;
-  labelText: string;
-  placeholder: string;
-  onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  buttonText: string;
-  value: string;
+	onSubmitHandler: (e: React.FormEvent<Element>) => void;
+	labelid: string;
+	labelText: string;
+	placeholder: string;
+	onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	buttonText: string;
+	value: string;
 }
-
-
