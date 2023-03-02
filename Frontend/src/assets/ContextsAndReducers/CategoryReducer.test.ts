@@ -1,5 +1,3 @@
-// unit tests mostly written by ChatGPT :-P
-
 import CategoryReducer from './CategoryReducer';
 import { ICategory } from '../interfaces/Interfaces';
 import { IDispatchAction } from '../interfaces/Interfaces';
