@@ -9,7 +9,7 @@ import { SetShowerrorModalContext } from "../ContextsAndReducers/ModalContext";
 
 const CreateCategory = () => {
 	const [title, setTitle] = useState("");
-	//const [error, setError] = useState<boolean>(false);
+	
 	const dispatchCategories = useContext(CategoryDispatchContext);
 	const setError = useContext(SetShowerrorModalContext);
 
